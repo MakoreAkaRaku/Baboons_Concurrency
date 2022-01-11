@@ -26,11 +26,11 @@ procedure Babuins_Viatgers is
          Id_Babui_N := Id; -- L'identificador del babui
       end Start;
       
+      -- Establim un delay aleatori entre el mínim i el màxim que es específic del babui
+      Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
       Put_Line("Soc el babui "& Orientacio & Id_Babui_N'Img);
       
       for index in 1..Nombre_De_Voltes loop
-         -- Establim un delay aleatori entre el mínim i el màxim 
-         Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
          -- Comença a creuar la corda
          Corda_Babuins.Cabo_Nord;
          delay Duration(Corda_Delay);
@@ -55,11 +55,11 @@ procedure Babuins_Viatgers is
          Id_Babui_S := Id;
       end Start;
       
+      -- Establim un delay aleatori entre el mínim i el màxim que es específic del babui
+      Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
       Put_Line(ASCII.HT&"Soc el babui "& Orientacio & Id_Babui_S'Img);
       
       for Index in 1..Nombre_De_Voltes loop
-         -- Establim un delay aleatori entre el mínim i el màxim
-         Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
          -- Comença a creuar la corda
          Corda_Babuins.Cabo_Sud;
          delay Duration(Corda_Delay);
