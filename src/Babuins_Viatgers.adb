@@ -9,7 +9,7 @@ procedure Babuins_Viatgers is
    Babuins_Max_Delay: Float := 10.0; -- Delay màxim
    Babuins_Min_Delay: Float := 1.0; -- Delay mínim
    Delay_Tornada: constant Float := 7.5; -- Delay per tornar a l'origen
-   Nombre_De_Voltes: Integer := 3; -- Quàntes voltes ha de fer cada babui
+   Num_Voltes: Integer := 3; -- Quàntes voltes ha de fer cada babui
    Gen: Generator;
    Corda_Babuins : Def_Monitor;
    
@@ -30,7 +30,7 @@ procedure Babuins_Viatgers is
       Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
       Put_Line("Soc el babui "& Orientacio & Id_Babui_N'Img);
       
-      for index in 1..Nombre_De_Voltes loop
+      for index in 1..Num_Voltes loop
          -- Comença a creuar la corda
          Corda_Babuins.Cabo_Nord;
          delay Duration(Corda_Delay);
@@ -59,7 +59,7 @@ procedure Babuins_Viatgers is
       Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
       Put_Line(ASCII.HT&"Soc el babui "& Orientacio & Id_Babui_S'Img);
       
-      for Index in 1..Nombre_De_Voltes loop
+      for Index in 1..Num_Voltes loop
          -- Comença a creuar la corda
          Corda_Babuins.Cabo_Sud;
          delay Duration(Corda_Delay);
