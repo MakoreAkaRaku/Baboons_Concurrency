@@ -1,0 +1,5 @@
+babuins_viatgers.adb:6:17: error: a generic package is not allowed in a use clause
+babuins_viatgers.adb:8:36: error: expected an integer type
+babuins_viatgers.adb:8:36: error: found type universal real
+babuins_viatgers.adb:8:41: error: expected an integer type
+babuins_viatgers.adb:8:41: error: found type universal real
