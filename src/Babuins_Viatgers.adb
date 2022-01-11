@@ -5,7 +5,8 @@ use Corda;
 with Ada.Numerics.Float_Random;
 use Ada.Numerics.Float_Random;
 procedure Babuins_Viatgers is
-   Subtype Babuins_Max_Delay is Duration range 5.0..20.0;
+   Babuins_Max_Delay :Float := 15.0;
+   Babuins_Min_Delay :Float := 5.0;
    Gen: Generator;
    Corda_Babuins : Def_Monitor;
    task type Babui_NORT is
@@ -20,15 +21,15 @@ procedure Babuins_Viatgers is
       accept Start(Id: Integer) do
          Id_Babui_N := Id;
       end Start;
-      Corda_Delay := Random(Gen);
+      Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
       Put_Line("Soc el babui "& Orientacio & Id_Babui_N'Img);
       
       for index in 1..3 loop
          Corda_Babuins.Cabo_Nord;
          delay Duration(Corda_Delay);
          Corda_Babuins.Unlock_Nord;
-         Put_Line("Babui "&Orientacio&Id_Babui_N'Img&": "&Index'Img&" de 3 voltes fetes // he tardat "&Corda_Delay'Img&" de temps");
-         delay 5.0;
+         Put_Line("Babui "&Orientacio&Id_Babui_N'Img&": "&Index'Img&" de 3 voltes fetes");
+         delay Duration(Babuins_Max_Delay);
       end loop;
       Put_Line("Babui " & Orientacio & Id_Babui_N'Img & ": He acabat!");
    end Babui_NORT;
@@ -44,7 +45,7 @@ procedure Babuins_Viatgers is
          accept Start(Id: Integer) do
             Id_Babui_S := Id;
          end Start;
-         Corda_Delay := Random(Gen);
+         Corda_Delay := Random(Gen)*(Babuins_Max_Delay-Babuins_Min_Delay)+Babuins_Min_Delay;
          Put_Line(ASCII.HT&"Soc el babui "& Orientacio & Id_Babui_S'Img);
       
          for Index in 1..3 loop
@@ -52,7 +53,7 @@ procedure Babuins_Viatgers is
             delay Duration(Corda_Delay);
             Corda_Babuins.Unlock_Sud;
             Put_Line(ASCII.HT&"Babui "&Orientacio&Id_Babui_S'Img&": "&Index'Img&" de 3 voltes fetes");
-            delay 5.0;
+            delay Duration(Babuins_Max_Delay);
          end loop;
          Put_Line(ASCII.HT&"Babui "& Orientacio& Id_Babui_S'Img&": He acabat!");
    end Babui_SUD;
